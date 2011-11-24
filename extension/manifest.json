@@ -3,8 +3,10 @@
   "version": "0.1",
   "description": "Don't let your friends hack your identity.",
   "content_scripts": [
-    "matches": ["*.facebook.com.*"],
-    "js": ["//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js", "intercept.js"]
+    {
+      "matches": ["*://www.facebook.com/*"],
+      "js": ["jquery.min.js", "intercept.js"]
+    }
   ],
   "permissions": [
     "tabs"
