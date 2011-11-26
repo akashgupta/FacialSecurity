@@ -1,6 +1,8 @@
 $(document).ready(function() {
   console.log("STARTING UP LIKE A BOSS");
-  $("input").focus(function() {
-    console.log("An input field got focus!");
-  });
+  
+  // TODO: Act when an textarea gets changed / focus
+  /*$("textarea").change(function() {
+    
+  });*/
 });
