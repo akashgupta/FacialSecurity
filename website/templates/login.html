@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Facial Security Login</title>
+    <meta content=""/>
+    <link rel="stylesheet" href="{{ static_url('style.css') }}" type="text/css"/>
+    <script src="{{ static_url('script.js') }}"></script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      FB.init({
+      appId      : "221487381257914",
+      status     : true,
+      cookie     : true,
+      oauth      : true,
+      });
+    </script>
+    <div id="button">LOGIN</div>
+  </body>
+</html>
