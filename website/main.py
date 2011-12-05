@@ -24,6 +24,10 @@ class AddHandler(tornado.web.RequestHandler):
                        [time, photo])
         connection.commit()
 
+class LoginHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("login.html")
+
 settings = {
     "static_path": "static",
     "template_path": "templates"
@@ -32,6 +36,7 @@ settings = {
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/add", AddHandler),
+    (r"/login", LoginHandler),
 ], **settings)
 
 if __name__ == "__main__":
