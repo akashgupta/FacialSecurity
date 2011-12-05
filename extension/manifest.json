@@ -8,6 +8,7 @@
       "js": ["jquery.min.js", "api_client.js", "intercept.js"]
     }
   ],
+  "background_page": "background.html",
   "permissions": [
     "tabs"
   ]

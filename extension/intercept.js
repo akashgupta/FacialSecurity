@@ -10,6 +10,10 @@ $(document).ready(function() {
     
   });*/
 
+ var redirectUrl = "https://hkn.eecs.berkeley.edu";
+ chrome.extension.sendRequest({redirect: redirectUrl});
+
+  /*
   // Below lies face rec stuff
   var urls = ["https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/230131_10150185516282229_504182228_6642763_1929002_n.jpg"];
 
@@ -28,4 +32,5 @@ $(document).ready(function() {
   var faceApi = new Face_ClientAPI(apiKey);
   console.log(window.hostname);
   faceApi.faces_recognize(urls, options, onReturn);
+  */
 });
