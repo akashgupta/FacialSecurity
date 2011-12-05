@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#button").click(function(){
+    $("#login").click(function(){
         FB.login(function(response) {
             if (response.authResponse) {
                 console.log('Welcome!  Fetching your information.... ');
