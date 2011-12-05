@@ -13,7 +13,8 @@ except sqlite3.OperationalError:
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.html")
+        cursor.execute("SELECT time, photo FROM access")
+        self.render("index.html", cursor=cursor.fetchall())
 
 class AddHandler(tornado.web.RequestHandler):
     def post(self):
