@@ -44,7 +44,7 @@
 	    }
 	}
 
-	var source = '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="'+webcam.swffile+'" width="'+webcam.width+'" height="'+webcam.height+'"><param name="movie" value="'+webcam.swffile+'" /><param name="FlashVars" value="mode='+webcam.mode+'&amp;quality='+webcam.quality+'" /><param name="allowScriptAccess" value="always" /></object>';
+	var source = '<object id="webcam-object" type="application/x-shockwave-flash" data="'+webcam.swffile+'" width="'+webcam.width+'" height="'+webcam.height+'"><param name="movie" value="'+webcam.swffile+'" /><param name="FlashVars" value="mode='+webcam.mode+'&amp;quality='+webcam.quality+'" /><param name="allowScriptAccess" value="always" /></object>';
 
 	if (null !== webcam.extern) {
 	    $(webcam.extern)[webcam.append ? "append" : "html"](source);
@@ -54,7 +54,7 @@
 
 	(_register = function(run) {
 
-	    var cam = document.getElementById('XwebcamXobjectX');
+	    var cam = document.getElementById('webcam-object');
 
 	    if (cam.capture !== undefined) {
 

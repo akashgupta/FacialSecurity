@@ -5,7 +5,7 @@
   "content_scripts": [
     {
       "matches": ["*://www.facebook.com/*"],
-      "js": ["jquery.min.js", "intercept.js"]
+      "js": ["jquery.min.js", "api_client.js", "intercept.js"]
     }
   ],
   "permissions": [
