@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ static_url('style.css') }}" type="text/css"/>
   </head>
   <body>
+    {% if len(cursor) > 0 %}
     <table id="accesses">
       <thead>
         <th>Access Time</th>
@@ -13,10 +14,21 @@
       <tbody>
         {% for item in cursor %}
         <tr>
+          <td>{{ item[0] }}</td>
           <td>{{ item[1] }}</td>
-          <td>{{ item[2] }}</td>
         </tr>
         {% end %}
+      </tbody>
     </table>
+    {% else %}
+    <table>
+      <thead>
+        <th>Access Time</th>
+        <th>Photo</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    {% end %}
   </body>
 </html>

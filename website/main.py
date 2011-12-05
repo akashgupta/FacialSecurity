@@ -7,7 +7,7 @@ import sqlite3
 connection = sqlite3.connect(os.getcwd() + "/accesses.db")
 cursor = connection.cursor()
 try:
-    cursor.execute("CREATE TABLE access (time text, photo blob)")
+    cursor.execute("CREATE TABLE access (time text, photo text)")
 except sqlite3.OperationalError:
     pass
 
@@ -20,8 +20,8 @@ class AddHandler(tornado.web.RequestHandler):
     def post(self):
         time = self.get_argument("time")
         photo = self.get_argument("photo")
-        cursor.execute("INSERT INTO access (time, photo) VALUES ({0}, {1})".
-                       format(time, photo))
+        cursor.execute("INSERT INTO access (time, photo) VALUES (?,?)",
+                       [time, photo])
         connection.commit()
 
 settings = {
