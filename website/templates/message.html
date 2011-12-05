@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+    <a href="/">Go to Home</a>
+    <form method="get" action="/search" >
+      <fieldset>
+        <legend>Search contacts</legend>
+        <input type="text" name="text" value="{{ text }}"/>
+        <input type="submit" value="Search">
+      </fieldset>
+    </form>
+    <strong>{{ message }}</strong>
+  </body>
+</html>

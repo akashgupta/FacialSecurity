@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Search contacts</title>
+    <meta content="">
+  </head>
+  <body>
+    <a href="/">Go to Home</a>
+    <form method="get" action="search" >
+      <fieldset>
+        <legend>Search contacts</legend>
+        <input type="text" name="text" value="{{ text }}"/>
+        <input type="submit" value="Search">
+      </fieldset>
+    </form>
+    {% if len(cursor) > 0 %}
+    <table id="contacts">
+      <thead>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>Phone</th>
+        <th>E-mail</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </thead>
+      <tbody>
+        {% for item in cursor %}
+        <tr>
+          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }}</td>
+          <td>{{ item[3] }}</td>
+          <td>{{ item[4] }}</td>
+          <td><a href="/delete/{{ item[0] }}">Delete</a></td>
+          <td><a href="/update/{{ item[0] }}">Update</a></td>
+        </tr>
+        {% end %}
+      </tbody>
+    </table>
+    {% else %}
+    <table>
+      <thead>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>Phone</th>
+        <th>E-mail</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    {% end %}
+  </body>
+</html>
