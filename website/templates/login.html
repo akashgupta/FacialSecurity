@@ -2,24 +2,20 @@
 <html>
     <head>
       <title>My Facebook Login Page</title>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script src="{{ static_url('script.js') }}"></script>
     </head>
     <body>
       <div id="fb-root"></div>
-      <script type="text/javascript">
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '221487381257914',
-            status     : true,
-            cookie     : true,
-            xfbml      : true
-          });
-        };
-        (function(d){
-           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-           js = d.createElement('script'); js.id = id; js.async = true;
-           js.src = "//connect.facebook.net/en_US/all.js";
-           d.getElementsByTagName('head')[0].appendChild(js);
-         }(document));
+      <script src="//connect.facebook.net/en_US/all.js"></script>
+      <script>
+        FB.init({
+        appId      : '221487381257914',
+        status     : true,
+        cookie     : true,
+        oauth      : true,
+        xfbml      : true
+        });
       </script>
       <div class="fb-login-button">Login with Facebook</div>
     </body>
