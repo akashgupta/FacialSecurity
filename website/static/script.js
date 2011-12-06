@@ -29,7 +29,10 @@ function onReturn(urls, response) {
     var myDate = new Date();
     var dateString = myDate.toString();
 
-    
+    console.log(response.status);
+    for (var photo in response.photos) {
+	console.log(photo);
+    }
 }
 
 function onAuthenticated(response) {
