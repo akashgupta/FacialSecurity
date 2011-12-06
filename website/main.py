@@ -32,6 +32,10 @@ class RejectedHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("rejected.html")
 
+class JpegHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("test.html")
+
 settings = {
     "static_path": "static",
     "template_path": "templates"
@@ -41,7 +45,8 @@ application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/add", AddHandler),
     (r"/login", LoginHandler),
-    (r"/rejected", RejectedHandler)
+    (r"/rejected", RejectedHandler),
+    (r"/jpeg", JpegHandler)
 ], **settings)
 
 if __name__ == "__main__":
