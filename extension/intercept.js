@@ -1,3 +1,7 @@
+function doStuff() {
+    
+}
+
 $(document).ready(function() {
   console.log("STARTING UP LIKE A BOSS");
   
@@ -22,11 +26,15 @@ $(document).ready(function() {
     var hours = time.getUTCHours();
     var minutes = time.getUTCMinutes();
     var seconds = time.getUTCSeconds();
+    console.log(year, month, day, hours, minutes, seconds);
     var utctime = Date.UTC(year,month,day,hours,minutes,seconds);
-    console.log("seconds", seconds);
-	if (utctime > (prevTime + 60000)) {
-		localStorage["redirectTime"] = seconds;
+    console.log("threshold", (prevTime + 60000));
+    console.log("current time", utctime);
+
+    if (parseInt(utctime) > (parseInt(prevTime) + parseInt(60000))) {
+		localStorage["redirectTime"] = utctime;
 		var redirectUrl = "http://ghost.eecs.berkeley.edu:8888/login";
 		chrome.extension.sendRequest({redirect: redirectUrl});
 	}
+	//setTimeout(doStuff, 10000);
  });
