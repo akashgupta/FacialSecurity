@@ -2,27 +2,6 @@ var uid = -1;
 
 // Allows us to post to the db
 function post(path, params, method) {
-    /*method = method || "post"; // Set method to post by default, if not specified.
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-
-    for(var key in params) {
-        var hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", key);
-        hiddenField.setAttribute("value", params[key]);
-
-        form.appendChild(hiddenField);
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);*/
-
     $.post(path, params);
 }
 
@@ -35,12 +14,16 @@ function onReturn(urls, response) {
     var myDate = new Date();
     var dateString = myDate.toString();
 
+    var userExists = false;
     console.log(response.status);
     for (var photoIndex in response.photos) {
 	for (var tagIndex in response.photos[photoIndex]["tags"]) {
 	    console.log(tagIndex);
 	    recogUID = response.photos[photoIndex]["tags"][tagIndex]["uids"][0]["uid"];
 	    recogUID = recogUID.substring(0, recogUID.length - 13);
+	    if (recogUID == uid) {
+		userExists = true;
+	    }
 	    var profilePicURL = getProfilePicURL(recogUID);
 	    options = {
 		time : dateString,
@@ -49,6 +32,13 @@ function onReturn(urls, response) {
 	    }
 	    post("http://ghost.eecs.berkeley.edu:8888/add", options, "post");
 	}
+    }
+
+    if (userExists == true) {
+	// Redirect to fb
+	window.location.replace(localStorage["fbUrl"]);
+    } else {
+	window.location.replace("http://ghost.eecs.berkeley.edu:8888/rejected");
     }
 }
 
