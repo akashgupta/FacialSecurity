@@ -16,8 +16,15 @@ $(document).ready(function() {
   }
 
 	var time = new Date();
+    var year = time.getUTCFullYear();
+    var month = time.getUTCMonth();
+    var day = time.getUTCDay();
+    var hours = time.getUTCHours();
+    var minutes = time.getUTCMinutes();
     var seconds = time.getUTCSeconds();
-	if (seconds > (prevTime + 300)) {
+    var utctime = Date.UTC(year,month,day,hours,minutes,seconds);
+    console.log("seconds", seconds);
+	if (utctime > (prevTime + 60000)) {
 		localStorage["redirectTime"] = seconds;
 		var redirectUrl = "http://ghost.eecs.berkeley.edu:8888/login";
 		chrome.extension.sendRequest({redirect: redirectUrl});
