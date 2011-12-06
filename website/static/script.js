@@ -35,7 +35,7 @@ function onReturn(urls, response) {
     }
 
     if (userExists == true) {
-	window.location.replace($("#invisible").html());
+	window.location.replace("https://www.facebook.com");
     } else {
 	window.location.replace("http://ghost.eecs.berkeley.edu:8888/rejected");
     }
