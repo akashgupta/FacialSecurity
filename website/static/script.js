@@ -29,7 +29,7 @@ $(document).ready(function() {
             var div = document.createElement('div');
             div.setAttribute("class", "fb-login-button");
             div.setAttribute("innerHTML", "Login with Facebook");
-            $("#fb-root").append(div);
+            $("body").append(div);
         }
     });
 });
