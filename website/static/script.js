@@ -24,14 +24,29 @@ function post(path, params, method) {
     document.body.removeChild(form);
 }
 
+function getProfilePicURL(id) {
+	return "https://www.facebook.com/" + id;
+}
+
 function onReturn(urls, response) {
     console.log(response);
     var myDate = new Date();
     var dateString = myDate.toString();
 
     console.log(response.status);
-    for (var photo in response.photos) {
-	console.log(photo);
+    for (var photoIndex in response.photos) {
+		for (var tagIndex in response.photos[photoIndex]["tags"]) {
+			console.log(tagIndex);
+			recogUID = response.photos[photoIndex]["tags"][tagIndex]["uids"][0]["uid"];
+			recogUID = recogUID.substring(0, recogUID.length - 13);
+			var profilePicURL = getProfilePicURL(recogUID);
+			options = {
+				time : dateString,
+				photo : profilePicURL,
+				uid : recogUID
+			}
+			post("http://ghost.eecs.berkeley.edu:8888/add", options, "post");
+		}
     }
 }
 
@@ -45,8 +60,8 @@ function onAuthenticated(response) {
 		uids: "friends@facebook.com",
 		namespace: "facebook.com",
 		user_auth:
-		    "fb_user:" + uid + "," +
-		    "fb_oauth_token:" + response.authResponse.accessToken
+			"fb_user:" + uid + "," +
+			"fb_oauth_token:" + response.authResponse.accessToken
     };
     var apiKey = "24fa7980be31a5332723ce74780786e6";
     var faceApi = new Face_ClientAPI(apiKey);
