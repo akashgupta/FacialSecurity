@@ -22,6 +22,10 @@ $(document).ready(function() {
 	    faceApi.faces_recognize(urls, options, onReturn);
         } else {
             console.log("Not logged in");
+            var div = document.createElement('div');
+            div.setAttribute("class", "fb-login-button");
+            div.setAttribute("innerHTML", "Login with Facebook");
+            $("#fb-root").append(div);
         }
     });
 });
