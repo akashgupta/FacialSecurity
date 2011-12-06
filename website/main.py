@@ -20,8 +20,9 @@ class AddHandler(tornado.web.RequestHandler):
     def post(self):
         time = self.get_argument("time")
         photo = self.get_argument("photo")
-        cursor.execute("INSERT INTO access (time, photo) VALUES (?,?)",
-                       [time, photo])
+        uid = self.get_argument("uid");
+        cursor.execute("INSERT INTO access (time, photo, uid) VALUES (?,?,?)",
+                       [time, photo, uid])
         connection.commit()
 
 class LoginHandler(tornado.web.RequestHandler):
