@@ -27,7 +27,8 @@ class AddHandler(tornado.web.RequestHandler):
 
 class LoginHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("login.html")
+	ref = self.get_argument("ref")
+        self.render("login.html", ref=ref)
 
 class RejectedHandler(tornado.web.RequestHandler):
     def get(self):

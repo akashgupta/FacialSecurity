@@ -2,11 +2,13 @@
 <html>
     <head>
       <title>My Facebook Login Page</title>
+      <link rel="stylesheet" href="{{ static_url('style.css') }}" type="text/css"/>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
       <script src="{{ static_url('api_client.js') }}"></script>
       <script src="{{ static_url('script.js') }}"></script>
     </head>
     <body>
+      <div id="invisible">{% ref %}</div>
       <div id="fb-root"></div>
       <script src="//connect.facebook.net/en_US/all.js"></script>
       <script>
