@@ -23,13 +23,10 @@ function onAuthenticated() {
 $(document).ready(function() {
     FB.getLoginStatus(function(response) {
         if (response.authResponse) {
+            $(".fb-login-button").remove();
             onAuthenticated();
         } else {
             console.log("Not logged in");
-            var div = document.createElement('div');
-            div.setAttribute("class", "fb-login-button");
-            div.setAttribute("innerHTML", "Login with Facebook");
-            $("body").append(div);
         }
     });
 });
