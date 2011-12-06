@@ -53,6 +53,10 @@ h1 {
     margin-right: auto;
 }
 
+#invisible {
+    color: #000;
+}
+
 a:link {
     color: #777;
     text-decoration: none;
