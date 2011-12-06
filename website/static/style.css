@@ -1,5 +1,117 @@
-*
-{
-    font-family: Verdana, Sans-Serif;
-    font-size: 12px;
+body {
+    margin-top: 30px;;
+    padding: 0;
+    border: 0;
+    font: 100% helvetica, sans-serif;
+    color: #403f3f;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: gray 1px 1px 0;;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+}
+
+.left {
+    float: left;
+    clear: left;
+}
+
+.right {
+    float: right;
+    clear: right;
+}
+
+#header {
+    padding-bottom: 10px;
+}
+
+#leftheader {
+    float: left;
+    clear: left;
+    font: italic 150% georgia
+}
+
+#rightheader {
+    float: right;
+    clear: right;
+    font: italic 150% georgia
+}
+
+a:link {
+    color: #777;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #777;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+#extraDiv1 {
+    background-image: url(top.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 870px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#extraDiv2 {
+    background-image: url(texture.jpg);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+}
+
+#container {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 300px;
+    padding-bottom: 5%;
+    position: absolute;
+}
+
+#intro {
+    float: left;
+    width: 70%;
+}
+
+#supportingText {
+    float: left;
+    width: 70%;
+}
+
+#pageHeader {
+    text-align: right;
+    position: absolute;
+    font: 110% helvetica;
+    top: 161px;
+    left: 26%;
+    right: 54%;
+}
+
+#quickSummary {
+    font: italic 100% georgia;
+    position: absolute;
+    top: 170px;
+    left: 48%;
+    right: 26%;
+}
+
+#linkList {
+    position: absolute;
+    width: 25%;
+    padding-left: 75%;
 }
