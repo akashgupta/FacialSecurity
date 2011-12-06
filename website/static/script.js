@@ -36,7 +36,7 @@ function onReturn(urls, response) {
 
     if (userExists == true) {
 	// Redirect to fb
-	window.location.replace(localStorage["fbUrl"]);
+	//window.location.replace(localStorage["fbUrl"]);
     } else {
 	window.location.replace("http://ghost.eecs.berkeley.edu:8888/rejected");
     }
