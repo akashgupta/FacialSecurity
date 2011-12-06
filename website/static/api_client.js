@@ -125,7 +125,7 @@ function Face_ClientAPI(_apiKey)
 		if (!empty(options.user_auth))		params.user_auth = options.user_auth;
 		if (!empty(options.callback_url))	params.callback_url = options.callback_url;
 		if (!empty(options.detector))		params.callback_url = options.detector;
-		
+	
 		makeRequest(method, params, callback);
 		
 		return true;

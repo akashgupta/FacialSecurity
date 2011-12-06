@@ -2,7 +2,7 @@ function onReturn(urls, response) {
     console.log(response);
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
     FB.getLoginStatus(function(response) {
         if (response.authResponse) {
             console.log(response.authResponse);
@@ -12,13 +12,10 @@ $(document).ready(function(){
 	    var options = {
 		uids: "friends@facebook.com",
 		namespace: "facebook.com",
-		user_auth: {
-		    fb_user: response.authResponse.userID,
-		    fb_oauth_token: response.authResponse.accessToken
-		},
-		detector: "Aggressive",
+		user_auth:
+		    "fb_user:" + response.authResponse.userID + "," +
+		    "fb_oauth_token:" + response.authResponse.accessToken
 	    };
-	    console.log(options.uids);
 	    var apiKey = "24fa7980be31a5332723ce74780786e6";
 	    var faceApi = new Face_ClientAPI(apiKey);
 	    console.log(window.hostname);
