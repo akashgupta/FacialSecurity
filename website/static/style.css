@@ -47,6 +47,12 @@ h1 {
     padding-bottom: 10px;
 }
 
+#image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 a:link {
     color: #777;
     text-decoration: none;
