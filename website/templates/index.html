@@ -5,11 +5,16 @@
     <link rel="stylesheet" href="{{ static_url('style.css') }}" type="text/css"/>
   </head>
   <body>
+    <h1>Facebook Access Attempts</h1>
+    <div class="container" id="header">
+      <div id="leftheader">Access Time</div>
+      <div id="rightheader">Profile Page</div>
+    </div>
     {% if len(cursor) > 0 %}
     {% for item in cursor %}
-    <div>
-      <span>{{ item[0] }}</span>
-      <span>{{ item[1] }}</span>
+    <div class="container">
+      <div class="left">{{ item[0] }}</div>
+      <div class="right">{{ item[1] }}</div>
     </div>
     {% end %}
     {% end %}
