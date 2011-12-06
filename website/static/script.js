@@ -1,5 +1,32 @@
+// Allows us to post to the db
+function post(path, params, method) {
+    method = method || "post"; // Set method to post by default, if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+
+        form.appendChild(hiddenField);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}
+
 function onReturn(urls, response) {
     console.log(response);
+    var myDate = new Date();
+    var dateString = myDate.toString();
+    console.log(dateString);
 }
 
 function onAuthenticated() {
@@ -16,7 +43,6 @@ function onAuthenticated() {
     };
     var apiKey = "24fa7980be31a5332723ce74780786e6";
     var faceApi = new Face_ClientAPI(apiKey);
-    console.log(window.hostname);
     faceApi.faces_recognize(urls, options, onReturn);
 }
 
