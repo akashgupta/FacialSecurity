@@ -35,8 +35,7 @@ function onReturn(urls, response) {
     }
 
     if (userExists == true) {
-	// Redirect to fb
-	//window.location.replace(localStorage["fbUrl"]);
+	window.location.replace("https://www.facebook.com");
     } else {
 	window.location.replace("http://ghost.eecs.berkeley.edu:8888/rejected");
     }
@@ -46,7 +45,12 @@ function onAuthenticated(response) {
     console.log(response.authResponse);
 
     uid = response.authResponse.userID;
+    
+    //akash
     var urls = ["https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/230131_10150185516282229_504182228_6642763_1929002_n.jpg"];
+
+    //bdong
+    //var urls = ["https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash2/36206_403655656502_612641502_4821418_7400074_n.jpg"];
 
     var options = {
 	uids: "friends@facebook.com",
