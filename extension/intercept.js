@@ -8,8 +8,10 @@ $(document).ready(function() {
 
   var prevTime = 0;
   if (localStorage["redirectTime"]) {
+	console.log("existed");
   	prevTime = localStorage["redirectTime"];
   } else {
+	console.log("didn't exist");
 	prevTime = 0;
   }
 
@@ -20,5 +22,4 @@ $(document).ready(function() {
 		var redirectUrl = "http://ghost.eecs.berkeley.edu:8888/login";
 		chrome.extension.sendRequest({redirect: redirectUrl});
 	}
-
  });
