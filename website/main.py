@@ -7,7 +7,7 @@ import sqlite3
 connection = sqlite3.connect(os.getcwd() + "/accesses.db")
 cursor = connection.cursor()
 try:
-    cursor.execute("CREATE TABLE access (time text, photo text)")
+    cursor.execute("CREATE TABLE access (time text, photo text, uid int)")
 except sqlite3.OperationalError:
     pass
 
@@ -36,6 +36,10 @@ class JpegHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("test.html")
 
+class ProfileHandler(tornado.web.RequestHandler):
+    def get(self, profile_id):
+        self.render("views.html")
+
 settings = {
     "static_path": "static",
     "template_path": "templates"
@@ -46,7 +50,8 @@ application = tornado.web.Application([
     (r"/add", AddHandler),
     (r"/login", LoginHandler),
     (r"/rejected", RejectedHandler),
-    (r"/jpeg", JpegHandler)
+    (r"/jpeg", JpegHandler),
+    (r"/(.*)", ProfileHandler)
 ], **settings)
 
 if __name__ == "__main__":
