@@ -7,14 +7,14 @@
   <body>
     <h1>Facebook Access Attempts</h1>
     <div class="container" id="header">
-      <span id="leftheader">Access Time</span>
-      <span id="rightheader">Profile Page</span>
+      <div id="leftheader">Access Time</div>
+      <div id="rightheader">Profile Page</div>
     </div>
     {% if len(cursor) > 0 %}
     {% for item in cursor %}
     <div class="container">
-      <span class="left">{{ item[0] }}</span>
-      <span class="right">{{ item[1] }}</span>
+      <div class="left">{{ item[0] }}</div>
+      <div class="right">{{ item[1] }}</div>
     </div>
     {% end %}
     {% end %}
